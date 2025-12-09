@@ -1,7 +1,3 @@
-Below is a clean, **professional README.md** for your extension — tailored to your actual features, architecture, and product positioning.
-You can paste this directly into GitHub.
-
----
 
 # 📌 **PII Guard – Browser Extension**
 
@@ -202,10 +198,4 @@ Security engineer • Product builder • Founder
 
 Open an issue or DM me on LinkedIn for early access or testing.
 
----
 
-If you want, I can also generate:
-✅ A **cleaner, more GitHub-style** version
-✅ A **marketing-focused** version
-✅ A **technical deep-dive** version with diagrams
-Just say **“make the technical one”**.
