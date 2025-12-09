@@ -2,7 +2,7 @@
 // PII_MVP – Background (Simple, ChatGPT fix build)
 
 const MVP_DEFAULT_WEBHOOK =
-  "https://script.google.com/macros/s/AKfycbymcLYfNKXPauQ5uDJhhcBeSJB9nbAOeJdVVD0QGQATUjuGOTYuOkdL34Nu_CG3mxq4/exec";
+  "https://script.google.com/macros/s/<ID>/exec";
 
 const MVP_DEFAULT_EMPLOYEE = "anonymous";
 
