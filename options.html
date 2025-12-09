@@ -1,0 +1,147 @@
+
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>PII_MVP · Setup</title>
+    <style>
+      :root { color-scheme: light dark; }
+      body {
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+        margin: 0;
+        padding: 24px;
+        background: #020617;
+        color: #e5e7eb;
+      }
+      .shell { max-width: 720px; margin: 0 auto; }
+      h1 { font-size: 22px; margin-bottom: 4px; }
+      p { font-size: 13px; color: #9ca3af; margin: 4px 0 12px; }
+      .card {
+        background: #020617;
+        border-radius: 12px;
+        padding: 16px 18px;
+        border: 1px solid #1f2937;
+        box-shadow: 0 18px 40px rgba(0, 0, 0, 0.35);
+        margin-top: 14px;
+      }
+      h2 { font-size: 15px; margin: 0 0 4px; }
+      label {
+        display: block;
+        margin-top: 10px;
+        font-size: 13px;
+        font-weight: 600;
+      }
+      .hint {
+        font-size: 11px;
+        color: #6b7280;
+      }
+      input[type="text"], select {
+        width: 100%;
+        box-sizing: border-box;
+        padding: 7px 9px;
+        margin-top: 4px;
+        border-radius: 6px;
+        border: 1px solid #374151;
+        background: #020617;
+        color: #e5e7eb;
+        font-size: 13px;
+      }
+      input::placeholder { color: #4b5563; }
+      .row { display: flex; gap: 12px; }
+      .row > div { flex: 1; }
+      button {
+        margin-top: 18px;
+        padding: 8px 16px;
+        border-radius: 999px;
+        border: none;
+        cursor: pointer;
+        font-size: 13px;
+        font-weight: 600;
+        background: #10b981;
+        color: #022c22;
+      }
+      #status { margin-left: 8px; font-size: 12px; color: #a5b4fc; }
+    </style>
+  </head>
+  <body>
+    <div class="shell">
+      <h1>PII_MVP setup</h1>
+      <p>Just fill in a few basics and we’ll quietly watch for PII in AI chats.</p>
+
+      <div class="card">
+        <h2>1. Alert destination</h2>
+        <p class="hint">
+          Paste your Google Apps Script webhook URL that sends email to your security/shared inbox.
+        </p>
+        <label>
+          Alert webhook URL
+          <input id="webhookUrl" type="text" placeholder="https://script.google.com/macros/s/…/exec" />
+        </label>
+        <div class="hint">
+          Dummy example: <code>https://script.google.com/macros/s/YOUR-ID/exec</code>
+        </div>
+      </div>
+
+      <div class="card">
+        <h2>2. Who is this browser?</h2>
+        <p class="hint">
+          Use an email, username, or device label like <code>FrontDesk-PC-01</code>.
+        </p>
+        <div class="row">
+          <div>
+            <label>
+              Employee ID or email
+              <input id="employeeId" type="text" placeholder="e.g. hodan@secure.io" />
+            </label>
+          </div>
+          <div>
+            <label>
+              Team / function
+              <input id="teamName" type="text" placeholder="e.g. Support, Finance, Dev" />
+            </label>
+          </div>
+        </div>
+
+        <label>
+          Manager / security contact (optional)
+          <input id="managerEmail" type="text" placeholder="e.g. security@company.com" />
+        </label>
+      </div>
+
+      <div class="card">
+        <h2>3. Strictness</h2>
+        <p class="hint">
+          Start in “Warn only” if you want people to get used to it, then move to “Block & alert”.
+        </p>
+        <label>
+          Protection mode
+          <select id="protectionMode">
+            <option value="block_and_alert">Block &amp; alert (recommended)</option>
+            <option value="warn_only">Warn only (allow sending)</option>
+            <option value="off">Off (no checks)</option>
+          </select>
+        </label>
+      </div>
+
+      <div class="card">
+        <h2>4. Company label (optional)</h2>
+        <p class="hint">
+          This label just shows up in alerts, handy if you manage multiple environments.
+        </p>
+        <label>
+          Company / environment name
+          <input id="companyName" type="text" placeholder="e.g. Secure · Production" />
+        </label>
+      </div>
+
+      <button id="saveBtn">Save settings</button>
+      <span id="status"></span>
+
+      <p class="hint" style="margin-top:16px;">
+        Tip: roll out in “Warn only” for a week before switching to “Block & alert”.
+      </p>
+    </div>
+
+    <script src="options.js"></script>
+  </body>
+</html>

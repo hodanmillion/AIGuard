@@ -1,0 +1,79 @@
+
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>PII_MVP Status</title>
+    <style>
+      body {
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+        margin: 0;
+        padding: 10px 12px;
+        min-width: 260px;
+        background: #020617;
+        color: #e5e7eb;
+      }
+      .header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 8px;
+      }
+      .title { font-size: 14px; font-weight: 600; }
+      .badge {
+        padding: 2px 8px;
+        border-radius: 999px;
+        font-size: 11px;
+      }
+      .badge-on {
+        background: rgba(34,197,94,0.15);
+        color: #bbf7d0;
+        border: 1px solid rgba(34,197,94,0.4);
+      }
+      .badge-off {
+        background: rgba(148,163,184,0.15);
+        color: #e5e7eb;
+        border: 1px solid rgba(148,163,184,0.4);
+      }
+      .row {
+        font-size: 12px;
+        margin-top: 4px;
+        color: #9ca3af;
+      }
+      .row strong { color: #e5e7eb; }
+      button {
+        margin-top: 10px;
+        width: 100%;
+        padding: 6px 10px;
+        border-radius: 999px;
+        border: none;
+        cursor: pointer;
+        font-size: 12px;
+        font-weight: 600;
+        background: #111827;
+        color: #e5e7eb;
+        border: 1px solid #374151;
+      }
+      button:hover { background: #020617; }
+    </style>
+  </head>
+  <body>
+    <div class="header">
+      <div class="title">PII_MVP</div>
+      <span id="statusBadge" class="badge badge-off">Checking…</span>
+    </div>
+    <div class="row">
+      <strong>Site:</strong> <span id="siteLabel">–</span>
+    </div>
+    <div class="row">
+      <strong>Mode:</strong> <span id="modeLabel">–</span>
+    </div>
+    <div class="row">
+      <strong>Detections (this browser):</strong>
+      <span id="countLabel">–</span>
+    </div>
+    <button id="openSettings">Open settings</button>
+
+    <script src="popup.js"></script>
+  </body>
+</html>
